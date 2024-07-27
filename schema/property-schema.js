@@ -2,6 +2,10 @@ const mongoose=require("mongoose")
 
 
 const propertySchema=mongoose.Schema({
+    vendorId:{
+        type:String,
+        require:true
+    },
     propertyName:{
         type:String,
         require:true
@@ -48,11 +52,11 @@ const propertySchema=mongoose.Schema({
         },
     propertyPhotos:{
         type:[String],
-        require:true
+        require:false
     },
     BookingDeatils:{
         type:[String],
-        require:true
+        require:false
     }
 
 })

@@ -5,6 +5,7 @@ const bcrypt=require("bcrypt")
 
 const getFunction=(req,res)=>{
     try {
+
         res.status(200).json({
             message:"this is working"
         })

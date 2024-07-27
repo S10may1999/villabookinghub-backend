@@ -15,9 +15,26 @@ const userAuthCheck=async(req,res,next)=>{
         })
         next()
     } catch (error) {
-        res.status(404).json({
-            message:"Please check your internet connection !!"
-        })
+        if (error.name === "TokenExpiredError") {
+            return res.status(401).json({
+                message: "Token expired"
+            });
+        }
+        if (error.name === "JsonWebTokenError") {
+            return res.status(401).json({
+                message: "Invalid token"
+            });
+        }
+        if (error.name === "CastError" && error.path === "_id") {
+            return res.status(400).json({
+                message: "Invalid token format",
+                error: error.message
+            });
+        }
+        res.status(500).json({
+            message: "Something went wrong!!",
+            error: error.message
+        }); 
     }
 }
 

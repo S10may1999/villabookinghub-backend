@@ -11,7 +11,7 @@ const router=express.Router()
 router.get("/",userAuthCheck,getFunction)
 router.post("/user-register",userRegister)
 router.post("/user-login",userSignIn)
-router.post("/profile-upload",userAuthCheck,upload.array("media",200),profileUpload)
+router.post("/profile-upload",userAuthCheck,upload.array("media",1),profileUpload)
 
 
 module.exports=router

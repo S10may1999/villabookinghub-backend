@@ -41,7 +41,7 @@ const vendorLogin=async(req,res)=>{
         message:"Incorrect Password !!"
     })
 
-    const token=jsonwebtoken.sign({"Vid":result._id},process.env.JWT_SECREAT_KEY)
+    const token=jsonwebtoken.sign({"id":result._id},process.env.JWT_SECREAT_KEY)
 
     res.cookie("VendorJwt",token,{
         httpOnly:true,
@@ -56,7 +56,9 @@ const vendorLogin=async(req,res)=>{
 
 
 const vendorInformationGet=async(req,res)=>{
-    await vendorModel.findOne({_id:req.cookies.VendorJwt}).then((result) => {
+    const jwtToken=jsonwebtoken.decode(req.cookies.VendorJwt)
+    console.log(jwtToken)
+    await vendorModel.findOne({_id:jwtToken.id}).then((result) => {
         if(!result) return res.status(404).json({
             message:"Opps !! Something Went Wrong !!"
         })
@@ -72,5 +74,6 @@ const vendorInformationGet=async(req,res)=>{
         })
     });
 }
+
 
 module.exports={vendorRegister,vendorLogin,vendorInformationGet}
