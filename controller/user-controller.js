@@ -59,7 +59,8 @@ const userSignIn=async(req,res)=>{
 
         res.cookie("jwt",token,{
             httpOnly:true,
-            secure:process.env.Node==="production"
+            secure:process.env.Node==="production",
+            sameSite:"none"
         })
 
         res.status(200).json({

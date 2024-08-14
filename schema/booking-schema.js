@@ -5,11 +5,7 @@ const bookingSchema=mongoose.Schema({
         type:String,
         require:true
     },
-    productId:{
-        type:String,
-        require:true
-    },
-    bookingDate:{
+    propertyId:{
         type:String,
         require:true
     },
@@ -26,6 +22,10 @@ const bookingSchema=mongoose.Schema({
         type:Number,
         require:true
     },
+    paymentReferenceNumber:{
+        type:String,
+        require:true
+    },
     TotalAmount:{
         type:Number,
         reuired:true
@@ -37,6 +37,15 @@ const bookingSchema=mongoose.Schema({
     checkoutTime:{
         type:String,
         require:true
+    },
+    isCanceled:{
+        type:Boolean,
+        require:true
+    },
+    transactionTime:{
+        type:Date,
+        default:Date.now()
+
     }
     
 })
