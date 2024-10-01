@@ -10,26 +10,6 @@ const propertySchema=mongoose.Schema({
         type:String,
         require:true
     },
-    state:{
-        type:String,
-        require:true
-    },
-    city:{
-        type:String,
-        require:true
-    },
-    pincode:{
-        type:String,
-        require:true
-    },
-    landmark:{
-        type:String,
-        require:true
-    },
-    street:{
-        type:String,
-        require:true
-    },
     isSwimmingPool:{
         type:Boolean,
         require:true

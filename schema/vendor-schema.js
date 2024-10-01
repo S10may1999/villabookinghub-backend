@@ -2,14 +2,6 @@ const mongoose = require("mongoose");
 
 
 const vendorDetailSchema=mongoose.Schema({
-    vendorEmail:{
-        type:String,
-        require:true
-    },
-    password:{
-        type:String,
-        require:true
-    },
     vendorName:{
         type:String,
         require:true
@@ -22,10 +14,6 @@ const vendorDetailSchema=mongoose.Schema({
     vendorcontact:{
         type:String,
         require:true
-    },
-    vendorDOB:{
-        type:String,
-        require:false
     },
     isCareTaker:{
         type:Boolean,
